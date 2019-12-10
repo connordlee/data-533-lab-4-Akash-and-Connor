@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[6]:
-
-
 import unittest
 from club import club
 from club.member.membertypes import player, staff
@@ -13,8 +7,8 @@ class TestClub(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Temproary variables to be stored into the club
-        ramos = player('Sergio Ramos', 'Spain', 15000000, 14, 'Right Back', 15)
-        benzema = player('Karim Benzema', 'French', 7920000, 10, 'Striker', 9)
+        ramos = player('Sergio Ramos', 'Spain', 1500000, 14, 'Right Back', 15)
+        benzema = player('Karim Benzema', 'France', 7920000, 10, 'Striker', 9)
         vazquez = staff('Roberto Vazquez', 'Spain', 3200000, 1, 'Goalkeeping Coach')
         zidane = staff('Zinedine Zidane', 'France', 5500000, 9, 'Skipper')
         plist = [ramos.asList(), benzema.asList()]
@@ -32,7 +26,7 @@ class TestClub(unittest.TestCase):
         
     def setUp(self):
         # Initializing members to be reset each time
-        self.p1 = player('Player 1', 'Knowhere', 4000000, 5, 'Midgard', 42)
+        self.p1 = player('Player 1', 'Germany', 4000000, 5, 'Midgard', 42)
         self.p2 = player('Player 2', 'Canada', 8300000, 7, 'Center Mid', 22)
         self.s1 = staff('Staff 1', 'Spain', 63000, 23, 'Groundskeeper')
         self.s2 = staff('Staff 2', 'Spain', 83000, 3, 'Accountant')
@@ -69,7 +63,7 @@ class TestClub(unittest.TestCase):
         # Assertions to confirm length change and info update (4 assertions)
         self.assertEqual(len(self.madrid.members['players']), origLen+1)
         self.assertEqual(self.madrid.members['players'][origLen].name, 'Player 1')
-        self.assertEqual(self.madrid.members['players'][origLen].nationality, 'Knowhere')
+        self.assertEqual(self.madrid.members['players'][origLen].nationality, 'Germany')
         self.assertEqual(self.madrid.members['players'][origLen].getSalary(), 4000000)
         # Adding new player to the club
         name, nationality, salary, yearsWClub, position, jersey = self.p2.asList()
@@ -139,9 +133,7 @@ class TestClub(unittest.TestCase):
         self.assertEqual(self.madrid.fans["international"][origLen+1].getPurchasedMerchandise(), 11)
         self.assertEqual(self.madrid.fans["international"][origLen+1].country, "Russia")
         self.assertEqual(self.madrid.fans["international"][origLen+1].viewMatches, "Online")
-###########################################################################################
-#############              NOTE: This needs 1 more assertion              #################
-###########################################################################################
+
     def test_removePlayer(self):
         # Temporary variable to track original length of list
         origLen = len(self.madrid.members['players'])
@@ -164,10 +156,6 @@ class TestClub(unittest.TestCase):
             remainingPlayers.append(player.name)
         self.assertNotIn('Sergio Ramos', remainingPlayers)
 
-
-###########################################################################################
-#############              NOTE: This needs 1 more assertion              #################
-###########################################################################################
     def test_removeStaff(self):
         # Temporary variable to track original length of list
         origLen = len(self.madrid.members['staff'])
@@ -243,7 +231,7 @@ class TestClub(unittest.TestCase):
         self.madrid.updatePlayer('Player 1', position='Right Back') # Updating position
         self.madrid.updatePlayer('Player 1', jersey=15) # Updating jersey        
         # Code to test updating all player attributes at the same time
-        self.madrid.updatePlayer('Player 2', 'French', 7920000, 10, 'Striker', 9)
+        self.madrid.updatePlayer('Player 2', 'France', 7920000, 10, 'Striker', 9)
         # Assertions to verify that the individual changes occured as expected (5 assertions)
         self.assertEqual(self.madrid.members['players'][0].nationality, 'Spain')
         self.assertEqual(self.madrid.members['players'][0].getSalary(), 15000000)
@@ -251,7 +239,7 @@ class TestClub(unittest.TestCase):
         self.assertEqual(self.madrid.members['players'][0].position, 'Right Back')
         self.assertEqual(self.madrid.members['players'][0].jersey, 15)
         # Assertions to verify that the bulk changes occured as expected (5 assertions)
-        self.assertEqual(self.madrid.members['players'][1].nationality, 'French')
+        self.assertEqual(self.madrid.members['players'][1].nationality, 'France')
         self.assertEqual(self.madrid.members['players'][1].getSalary(), 7920000)
         self.assertEqual(self.madrid.members['players'][1].yearsWClub, 10)
         self.assertEqual(self.madrid.members['players'][1].position, 'Striker')
@@ -322,10 +310,3 @@ class TestClub(unittest.TestCase):
         self.assertEqual(self.madrid.fans["international"][1].viewMatches, "TV")
 
 unittest.main(argv=[''], verbosity=2, exit=False)
-
-
-# In[ ]:
-
-
-
-

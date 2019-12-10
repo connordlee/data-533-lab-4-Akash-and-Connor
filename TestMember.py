@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[27]:
-
-
 import unittest
 from club import club
 from club.member.member import member
@@ -17,7 +11,7 @@ class TestMember(unittest.TestCase):
         
     def setUp(self):
         # Initializing members to be reset each time
-        self.ramos = member('Sergio Ramos', 'Spain', 15000000, 14)
+        self.ramos = member('Sergio Ramos', 'Spain', 1500000, 14)
         self.benzema = member('Karim Benzema', 'France', 7920000, 10)
 
     @classmethod
@@ -33,15 +27,15 @@ class TestMember(unittest.TestCase):
 
     def test_updateNationality(self):
         # Updating the nationalities for the members
-        self.ramos.updateNationality('Spanish')
-        self.benzema.updateNationality('French')
-        self.vazquez.updateNationality('Spanish')
-        self.zidane.updateNationality('French')
+        self.ramos.updateNationality('Canada')
+        self.benzema.updateNationality('Germany')
+        self.vazquez.updateNationality('Canada')
+        self.zidane.updateNationality('Germany')
         # Testing that the nationalities updated (4 assertions)
-        self.assertEqual(self.ramos.nationality,'Spanish')
-        self.assertEqual(self.benzema.nationality, 'French')
-        self.assertEqual(self.vazquez.nationality,'Spanish')
-        self.assertEqual(self.zidane.nationality, 'French')
+        self.assertEqual(self.ramos.nationality,'Canada')
+        self.assertEqual(self.benzema.nationality, 'Germany')
+        self.assertEqual(self.vazquez.nationality,'Canada')
+        self.assertEqual(self.zidane.nationality, 'Germany')
         # Testing that the nationalities are all of type string (4 assertions)
         self.assertIsInstance(self.ramos.nationality, str)
         self.assertIsInstance(self.benzema.nationality, str)
@@ -88,10 +82,3 @@ class TestMember(unittest.TestCase):
         self.assertIsInstance(self.zidane.yearsWClub, int)
 
 unittest.main(argv=[''], verbosity=2, exit=False)
-
-
-# In[ ]:
-
-
-
-

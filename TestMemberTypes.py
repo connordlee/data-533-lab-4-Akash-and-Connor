@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[12]:
-
-
 import unittest
 from club import club
 from club.member.membertypes import player, staff
@@ -15,8 +9,8 @@ class TestMemberTypes(unittest.TestCase):
         cls.zidane = staff('Zinedine Zidane', 'France', 5500000, 9, 'Skipper')
         cls.vazquez = staff('Roberto Vazquez', 'Spain', 3200000, 1, 'Goalkeeping Coach')
         # Initial izing Players for testing
-        cls.ramos = player('Sergio Ramos', 'Spain', 15000000, 14, 'Right Back', 15)
-        cls.benzema = player('Karim Benzema', 'French', 7920000, 10, 'Striker', 9)
+        cls.ramos = player('Sergio Ramos', 'Spain', 1500000, 14, 'Right Back', 15)
+        cls.benzema = player('Karim Benzema', 'France', 7920000, 10, 'Striker', 9)
         
     def setUp(self):
         # Initializing Club Info For Testing
@@ -58,12 +52,12 @@ class TestMemberTypes(unittest.TestCase):
         self.assertEqual(self.madrid.members['players'][0].jersey,0)
         self.assertEqual(self.madrid.members['players'][1].jersey, 9)
         # Testing updating players independent of club (2 assertions)
-        self.ramos.updateJerseyNum(40000000)
+        self.ramos.updateJerseyNum(4000000)
         self.benzema.updateJerseyNum(-43)
-        self.assertEqual(self.ramos.jersey, 40000000)
+        self.assertEqual(self.ramos.jersey, 4000000)
         self.assertEqual(self.benzema.jersey, -43)
         # Testing that assertIs works on the updated players (2 assertions)
-        self.assertIs(self.ramos.jersey, 40000000)
+        self.assertIs(self.ramos.jersey, 4000000)
         self.assertIs(self.benzema.jersey, -43)
         
     def test_updateTitle(self):
@@ -95,10 +89,3 @@ class TestMemberTypes(unittest.TestCase):
         self.assertEqual(zidaneList[2], 5500000)
 
 unittest.main(argv=[''], verbosity=2, exit=False)
-
-
-# In[ ]:
-
-
-
-
