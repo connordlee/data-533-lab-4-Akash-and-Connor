@@ -12,5 +12,3 @@ class SalaryException(Exception):
             return(repr('Minimum possible salary is $50000 you input: $'+str(self.value)))
         elif self.value > 10000000:
             return(repr('Maximum possible salary is $10000000 you input: $'+str(self.value)))
-        else:
-            return(repr('Invalid Salary'))

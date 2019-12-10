@@ -41,7 +41,7 @@ class club:
         for player in self.members['players']:
             player.display()
             if salary==True:
-               print("         Salary:", player.getSalary())
+                print("         Salary:", player.getSalary())
             print("\n")
             
     def displayDomestic(self):
@@ -53,7 +53,7 @@ class club:
         for staff in self.members['staff']:
             staff.display()
             if salary==True:
-               print("         Salary:", staff.getSalary())
+                print("         Salary:", staff.getSalary())
             print("\n")
     
     def displayInternational(self):

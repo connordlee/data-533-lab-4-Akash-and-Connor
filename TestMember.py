@@ -41,23 +41,31 @@ class TestMember(unittest.TestCase):
         self.assertIsInstance(self.benzema.nationality, str)
         self.assertIsInstance(self.vazquez.nationality, str)
         self.assertIsInstance(self.zidane.nationality, str)
+        # Testing Incorrect Inputes
+        self.ramos.updateNationality('blarg')
+        self.assertEqual(self.ramos.nationality,'Canada')
+        self.ramos.updateNationality(4)
+        self.assertEqual(self.ramos.nationality,'Canada')        
         
     def test_setSalary_getSalary(self):
         # Setting the salaries to something new for the members
-        self.ramos.setSalary(1)
-        self.benzema.setSalary(2)
-        self.vazquez.setSalary(3)
-        self.zidane.setSalary(4)
+        self.ramos.setSalary(50000)
+        self.benzema.setSalary(2000000)
+        self.vazquez.setSalary(3500000)
+        self.zidane.setSalary(400000)
         # Testing that the setSalary worked and that the getSalary pulls the correct information (4 assertions)
-        self.assertEqual(self.ramos.getSalary(), 1)
-        self.assertEqual(self.benzema.getSalary(), 2)
-        self.assertEqual(self.vazquez.getSalary(), 3)
-        self.assertEqual(self.zidane.getSalary(), 4)
+        self.assertEqual(self.ramos.getSalary(), 50000)
+        self.assertEqual(self.benzema.getSalary(), 2000000)
+        self.assertEqual(self.vazquez.getSalary(), 3500000)
+        self.assertEqual(self.zidane.getSalary(), 400000)
         # Testing that the getSalary method pulls integers
         self.assertIsInstance(self.ramos.getSalary(), int)
         self.assertIsInstance(self.benzema.getSalary(), int)
         self.assertIsInstance(self.vazquez.getSalary(), int)
         self.assertIsInstance(self.zidane.getSalary(), int)
+        # Testing inptu type
+        self.ramos.setSalary('test')
+        self.assertEqual(self.ramos.getSalary(), 50000)
 
     def test_newYear(self):
         # Storing temporary variables for years before running newYear method

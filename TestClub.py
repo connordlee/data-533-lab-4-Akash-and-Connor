@@ -72,7 +72,7 @@ class TestClub(unittest.TestCase):
         self.assertEqual(len(self.madrid.members['players']), origLen+2)
         self.assertEqual(self.madrid.members['players'][origLen+1].yearsWClub, 7)
         self.assertEqual(self.madrid.members['players'][origLen+1].position, 'Center Mid')
-        self.assertEqual(self.madrid.members['players'][origLen+1].jersey, 22)
+        self.assertEqual(self.madrid.members['players'][origLen+1].jersey, 22)  
         
     def test_addStaff(self):
         # Temporary variable to track original length of list
@@ -154,7 +154,7 @@ class TestClub(unittest.TestCase):
         remainingPlayers = []
         for player in self.madrid.members['players']:
             remainingPlayers.append(player.name)
-        self.assertNotIn('Sergio Ramos', remainingPlayers)
+        self.assertNotIn('Karim Benzema', remainingPlayers)
 
     def test_removeStaff(self):
         # Temporary variable to track original length of list
@@ -244,6 +244,12 @@ class TestClub(unittest.TestCase):
         self.assertEqual(self.madrid.members['players'][1].yearsWClub, 10)
         self.assertEqual(self.madrid.members['players'][1].position, 'Striker')
         self.assertEqual(self.madrid.members['players'][1].jersey, 9)
+        # Updates and Assertions to test incorrect salary inputs
+        self.madrid.updatePlayer('Player 1', salary=5000000000000) # Testing salary too high
+        self.assertEqual(self.madrid.members['players'][0].getSalary(), 1500000)
+        self.madrid.updatePlayer('Player 1', salary=50) # Testing salary too low
+        self.assertEqual(self.madrid.members['players'][0].getSalary(), 1500000)
+        
         
     def test_updateStaff(self):
         # Code to test updating each staff attribute individually
@@ -263,6 +269,11 @@ class TestClub(unittest.TestCase):
         self.assertEqual(self.madrid.members['staff'][1].getSalary(), 5500000)
         self.assertEqual(self.madrid.members['staff'][1].yearsWClub, 9)
         self.assertEqual(self.madrid.members['staff'][1].title, 'Skipper')
+        # Updates and Assertions to test incorrect salary inputs
+        self.madrid.updateStaff('Staff 1', salary=5000000000000) # Testing salary too high
+        self.assertEqual(self.madrid.members['staff'][0].getSalary(), 320000)
+        self.madrid.updateStaff('Staff 1', salary=50) # Testing salary too low
+        self.assertEqual(self.madrid.members['staff'][0].getSalary(), 320000)
         
     
     def test_updateDomestic(self):

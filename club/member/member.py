@@ -4,34 +4,31 @@ countries = ['Afghanistan','Albania','Algeria','America','Andorra','Angola','Ant
 
 class member:
     def __init__(self, name, nationality, salary, yearsWClub):
-        try:
-            if nationality in countries:
-                pass
-            else:
-                # user defined exception (see userexceptions.py for exception definition)
-                raise(NationException(nationality)) 
-            if salary > 10000000 or salary < 50000:
-                # user defined exception (see userexceptions.py for exception definition)
-                raise(SalaryException(salary))
-        except NationException as nExcept:
-            print("Error: ", nExcept)
-        except SalaryException as sExcept:
-            print("Error: ", sExcept)
-        else:
-            self.name = name
-            self.nationality = nationality
-            self.__salary = salary
-            self.yearsWClub = yearsWClub
+        self.name = name
+        self.nationality = nationality
+        self.__salary = salary
+        self.yearsWClub = yearsWClub
             
         
         
     def updateNationality(self, newNationality):
-        self.nationality = newNationality
+        try:
+            if isinstance(newNationality, str) != True:
+                raise(ValueError)
+            if newNationality not in countries:
+                # user defined exception (see userexceptions.py for exception definition)
+                raise(NationException(newNationality))
+        except NationException as nExcept:
+            print("Error: ", nExcept)
+        except ValueError:
+            print("Error: Incorrect Data Type") 
+        else:
+            self.nationality = newNationality
         
     def setSalary(self, newSalary):
         try:
-            if newSalary <= 10000000 or newSalary >= 50000:
-                self.__salary = int(newSalary)
+            if int(newSalary) <= 10000000 and int(newSalary) >= 50000:
+                self.__salary = newSalary
             else:
                 raise(SalaryException(newSalary))
         except ValueError:
