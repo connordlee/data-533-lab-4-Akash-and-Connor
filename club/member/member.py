@@ -8,8 +8,10 @@ class member:
             if nationality in countries:
                 pass
             else:
-                raise(NationException(nationality))
+                # user defined exception (see userexceptions.py for exception definition)
+                raise(NationException(nationality)) 
             if salary > 10000000 or salary < 50000:
+                # user defined exception (see userexceptions.py for exception definition)
                 raise(SalaryException(salary))
         except NationException as nExcept:
             print("Error: ", nExcept)
@@ -27,7 +29,15 @@ class member:
         self.nationality = newNationality
         
     def setSalary(self, newSalary):
-        self.__salary = newSalary
+        try:
+            if newSalary <= 10000000 or newSalary >= 50000:
+                self.__salary = int(newSalary)
+            else:
+                raise(SalaryException(newSalary))
+        except ValueError:
+            print("Salaries must be integer values")
+        except SalaryException as sExcept:
+            print("Error: ", sExcept)
         
     def getSalary(self):
         return self.__salary

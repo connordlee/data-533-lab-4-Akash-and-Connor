@@ -226,7 +226,7 @@ class TestClub(unittest.TestCase):
     def test_updatePlayer(self):
         # Code to test updating each player attribute individually
         self.madrid.updatePlayer('Player 1', nationality='Spain') # Updating nationality
-        self.madrid.updatePlayer('Player 1', salary=15000000) # Updating Salary
+        self.madrid.updatePlayer('Player 1', salary=1500000) # Updating Salary
         self.madrid.updatePlayer('Player 1', yearsWClub=14) # Updating yearsWClub
         self.madrid.updatePlayer('Player 1', position='Right Back') # Updating position
         self.madrid.updatePlayer('Player 1', jersey=15) # Updating jersey        
@@ -234,7 +234,7 @@ class TestClub(unittest.TestCase):
         self.madrid.updatePlayer('Player 2', 'France', 7920000, 10, 'Striker', 9)
         # Assertions to verify that the individual changes occured as expected (5 assertions)
         self.assertEqual(self.madrid.members['players'][0].nationality, 'Spain')
-        self.assertEqual(self.madrid.members['players'][0].getSalary(), 15000000)
+        self.assertEqual(self.madrid.members['players'][0].getSalary(), 1500000)
         self.assertEqual(self.madrid.members['players'][0].yearsWClub, 14)
         self.assertEqual(self.madrid.members['players'][0].position, 'Right Back')
         self.assertEqual(self.madrid.members['players'][0].jersey, 15)
@@ -248,14 +248,14 @@ class TestClub(unittest.TestCase):
     def test_updateStaff(self):
         # Code to test updating each staff attribute individually
         self.madrid.updateStaff('Staff 1', nationality='Spain') # Updating nationality
-        self.madrid.updateStaff('Staff 1', salary=3200000) # Updating Salary
+        self.madrid.updateStaff('Staff 1', salary=320000) # Updating Salary
         self.madrid.updateStaff('Staff 1', yearsWClub=1) # Updating yearsWClub
         self.madrid.updateStaff('Staff 1', title='Goalkeeping Coach') # Updating position     
         # Code to test updating all staff attributes at the same time
         self.madrid.updateStaff('Staff 2', 'France', 5500000, 9, 'Skipper')
         # Assertions to verify that the individual changes occured as expected (4 assertions)
         self.assertEqual(self.madrid.members['staff'][0].nationality, 'Spain')
-        self.assertEqual(self.madrid.members['staff'][0].getSalary(), 3200000)
+        self.assertEqual(self.madrid.members['staff'][0].getSalary(), 320000)
         self.assertEqual(self.madrid.members['staff'][0].yearsWClub, 1)
         self.assertEqual(self.madrid.members['staff'][0].title, 'Goalkeeping Coach')
         # Assertions to verify that the bulk changes occured as expected (4 assertions)
