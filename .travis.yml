@@ -3,3 +3,5 @@ python:
  - "3.7"
 script:
  - python TestSuiteClub.py
+before_install:
+ - sudo apt-get install python3-pandas
