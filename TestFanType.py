@@ -50,6 +50,11 @@ class TestFanType(unittest.TestCase):
         # Testing that assertIs works on the updated domestic 
         self.assertIs(self.connor.hasSeasonTickets, True)
         self.assertIs(self.joe.hasSeasonTickets, False)
+        # Testing User Exception
+        self.connor.updateTicketStatus("Yes")
+        self.assertIs(self.connor.hasSeasonTickets, True)
+        self.connor.updateTicketStatus(0)
+        self.assertIs(self.connor.hasSeasonTickets, False)
         
     def test_updateViewMatches(self):
         # Testing Update View Matches
@@ -65,6 +70,11 @@ class TestFanType(unittest.TestCase):
         # Testing that assertIs works on the updated players (2 assertions)
         self.assertIs(self.akash.viewMatches, "TV")
         self.assertIs(self.jane.viewMatches, "Online")
+        # Testing user exception
+        self.akash.updateViewMatches("Podcast")
+        self.assertIs(self.akash.viewMatches, "TV")
+        self.akash.updateViewMatches(True)
+        self.assertIs(self.akash.viewMatches, "TV")
 
     def test_asList(self):
         # Running the asList function on one player and one staff
