@@ -9,7 +9,7 @@ class ViewsException(Exception):
     def __init__(self, value):
         self.value = value
     def __str__(self):
-        return(repr(self.value+' is an invalid method to View matches'))
+        return(repr(str(self.value) +' is an invalid method to View matches'))
     
 class TicketException(Exception):
     def __init__(self, value):

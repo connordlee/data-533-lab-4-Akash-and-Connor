@@ -40,8 +40,8 @@ class TestFanType(unittest.TestCase):
         # Testing Update Ticket Status
         self.madrid.fans["domestic"][0].updateTicketStatus(False)
         self.madrid.fans["domestic"][1].updateTicketStatus(True)
-        self.assertFalse(self.madrid.fans["domestic"][0].hasSeasonTickets, False)
-        self.assertTrue(self.madrid.fans["domestic"][1].hasSeasonTickets, True)
+        self.assertTrue(self.madrid.fans["domestic"][0].hasSeasonTickets, True)
+        self.assertFalse(self.madrid.fans["domestic"][1].hasSeasonTickets, True)
         # Testing update domestic independent of club 
         self.connor.updateTicketStatus(True)
         self.joe.updateTicketStatus(False)
@@ -54,7 +54,7 @@ class TestFanType(unittest.TestCase):
         self.connor.updateTicketStatus("Yes")
         self.assertIs(self.connor.hasSeasonTickets, True)
         self.connor.updateTicketStatus(0)
-        self.assertIs(self.connor.hasSeasonTickets, False)
+        self.assertIs(self.connor.hasSeasonTickets, True)
         
     def test_updateViewMatches(self):
         # Testing Update View Matches

@@ -289,13 +289,13 @@ class TestClub(unittest.TestCase):
         self.assertEqual(self.madrid.fans["domestic"][0].getFavouritePlayer(), "Paulo Dybala")
         self.assertEqual(self.madrid.fans["domestic"][0].getPurchasedMerchandise(), 15)
         self.assertEqual(self.madrid.fans["domestic"][0].getCurrentCity(), "Madrid")
-        self.assertEqual(self.madrid.fans["domestic"][0].hasSeasonTickets, True)
+        self.assertEqual(self.madrid.fans["domestic"][0].hasSeasonTickets, False)
         self.assertEqual(self.madrid.fans["domestic"][0].yearsSinceFan, 21)
         # Assertions to verify that the bulk changes occured as expected (5 assertions)
         self.assertEqual(self.madrid.fans["domestic"][1].getFavouritePlayer(), "Angel DiMaria")
         self.assertEqual(self.madrid.fans["domestic"][1].getPurchasedMerchandise(), 4)
         self.assertEqual(self.madrid.fans["domestic"][1].getCurrentCity(), "Gijon")
-        self.assertEqual(self.madrid.fans["domestic"][1].hasSeasonTickets, False)
+        self.assertEqual(self.madrid.fans["domestic"][1].hasSeasonTickets, True)
         self.assertEqual(self.madrid.fans["domestic"][1].yearsSinceFan, 10)
         
     def test_updateInternational(self):

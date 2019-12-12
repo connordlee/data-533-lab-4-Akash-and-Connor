@@ -38,7 +38,9 @@ class domestic(fan):
             print("Message: ", texc)
         except ValueError:
             print("Incorrect Value Type")
-        self.hasSeasonTickets = newTicketStatus
+            
+        else:
+            self.hasSeasonTickets = newTicketStatus
     
     def asList(self):
         return([self.name, self.getFavouritePlayer(), self.getPurchasedMerchandise(), self.getCurrentCity(), 
@@ -64,7 +66,8 @@ class international(fan):
             print("Message: ", vexc)
         except ValueError:
             print("Error! Wrong input type!")
-        self.viewMatches = newViewMatches
+        else:
+            self.viewMatches = newViewMatches
     
     def display(self):
         fan.display(self)
