@@ -1,6 +1,7 @@
 # Travis Snapshot
 [![Build Status](https://travis-ci.org/connordlee/data-533-lab-4-Akash-and-Connor.svg?branch=master)](https://travis-ci.org/connordlee/data-533-lab-4-Akash-and-Connor)
 
+## **Please Note: We do not have 100% Coverage as we have not tested our Display functions!**
 ![Coverage Report](htmlcov/Coverage_Report.PNG)
 
 # data-533-lab-2-Akash-and-Connor
